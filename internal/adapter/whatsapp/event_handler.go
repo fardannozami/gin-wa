@@ -1,7 +1,8 @@
 package whatsapp
 
 import (
-	domain "github.com/fardannozami/gin-wa/internal/domain/message"
+	"log"
+
 	"github.com/fardannozami/gin-wa/internal/usecase"
 	"go.mau.fi/whatsmeow/types/events"
 )
@@ -17,11 +18,15 @@ func NewEventHandler(messageUC *usecase.MessageUseCase) *EventHandler {
 }
 
 func (h *EventHandler) HandleEvent(evt interface{}) {
-	switch v := evt.(type) {
-	case *events.Message:
-		h.MessageUC.HandleIncomingMessage(domain.Message{
-			From:    v.Info.Sender.User,
-			Content: v.Message.GetConversation(),
-		})
+	switch evt.(type) {
+
+	case *events.PairSuccess:
+		log.Println("🎉 Pairing SUCCESS")
+
+	case *events.Connected:
+		log.Println("🔗 Connected")
+
+	case *events.Disconnected:
+		log.Println("❌ Disconnected")
 	}
 }
