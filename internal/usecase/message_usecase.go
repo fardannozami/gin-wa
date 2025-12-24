@@ -3,7 +3,7 @@ package usecase
 import (
 	"log"
 
-	"github.com/fardannozami/gin-wa/internal/domain"
+	domain "github.com/fardannozami/gin-wa/internal/domain/message"
 )
 
 type MessageUseCase struct{}

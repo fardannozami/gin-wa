@@ -1,7 +1,7 @@
 package whatsapp
 
 import (
-	"github.com/fardannozami/gin-wa/internal/domain"
+	domain "github.com/fardannozami/gin-wa/internal/domain/message"
 	"github.com/fardannozami/gin-wa/internal/usecase"
 	"go.mau.fi/whatsmeow/types/events"
 )
